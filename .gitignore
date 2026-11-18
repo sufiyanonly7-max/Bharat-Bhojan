@@ -5,11 +5,9 @@ node_modules/
 .env
 .env.local
 
-# SQLite local database files (Can be re-generated via npm run seed)
-*.db
+# SQLite local journal and temporary files (bharat_bhojan.db is tracked for direct deployment)
 *.db-journal
-*.sqlite
-*.sqlite3
+*.sqlite-journal
 
 # OS generated files
 Thumbs.db

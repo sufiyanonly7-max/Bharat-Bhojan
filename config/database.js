@@ -10,10 +10,27 @@ const fs = require('fs');
 
 // Path to SQLite database file
 const dbDirectory = path.join(__dirname, '..', 'database');
-const dbPath = path.join(dbDirectory, 'bharat_bhojan.db');
+let dbPath = path.join(dbDirectory, 'bharat_bhojan.db');
 
-// Ensure database directory exists
-if (!fs.existsSync(dbDirectory)) {
+// In serverless environments (like Vercel or AWS Lambda), the deployment directory is read-only.
+// If running on Vercel, copy the pre-seeded database to /tmp so SQLite can open and operate normally.
+const isServerless = Boolean(process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME);
+if (isServerless) {
+    const tmpDbPath = path.join('/tmp', 'bharat_bhojan.db');
+    if (!fs.existsSync(tmpDbPath)) {
+        if (fs.existsSync(dbPath)) {
+            try {
+                fs.copyFileSync(dbPath, tmpDbPath);
+            } catch (err) {
+                console.error('Failed to copy database to /tmp:', err.message);
+            }
+        }
+    }
+    dbPath = tmpDbPath;
+}
+
+// Ensure database directory exists if not serverless
+if (!isServerless && !fs.existsSync(dbDirectory)) {
     fs.mkdirSync(dbDirectory, { recursive: true });
 }
 
