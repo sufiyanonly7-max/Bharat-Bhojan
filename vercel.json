@@ -1,6 +1,9 @@
 {
   "version": 2,
   "functions": {
+    "server.js": {
+      "includeFiles": "database/**,public/**,admin/**"
+    },
     "api/index.js": {
       "includeFiles": "database/**,public/**,admin/**"
     }
@@ -8,7 +11,7 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/api/index.js"
+      "destination": "/server.js"
     }
   ]
 }
