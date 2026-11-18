@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Record Editor | Bharat Bhojan Admin</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body class="admin-body">
+
+    <!-- Admin Navigation Header -->
+    <header class="admin-header">
+        <div class="admin-nav">
+            <a href="/admin/dashboard.html" class="admin-brand">
+                <span>भ Bharat Bhojan</span>
+                <span class="badge">Admin Portal</span>
+            </a>
+
+            <div class="admin-user-menu">
+                <span style="font-size: 0.9rem; color: #D4C7B4;">
+                    Signed in as: <strong id="adminUsernameDisplay" style="color: #FFFFFF;">admin</strong>
+                </span>
+                <a href="/admin/dashboard.html" class="btn btn-secondary btn-sm" style="background: transparent; color: #FFFFFF; border-color: rgba(255,255,255,0.3);">
+                    ← Back to Dashboard
+                </a>
+                <button type="button" onclick="handleLogout()" class="btn btn-sm btn-danger">
+                    🚪 Sign Out
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="admin-main" style="max-width: 1000px;">
+
+        <div style="margin-bottom: 1.5rem;">
+            <a href="/admin/dashboard.html" style="font-size: 0.9rem; color: var(--admin-primary); font-weight: 600;">
+                ← Back to Dashboard
+            </a>
+            <h1 id="formTitle" style="font-family: var(--font-serif); font-size: 2rem; color: var(--admin-primary); margin-top: 0.5rem;">
+                Add New Traditional Food Record
+            </h1>
+        </div>
+
+        <div id="formAlert" class="admin-alert"></div>
+
+        <div class="form-card">
+            <form id="foodForm">
+
+                <!-- Basic Identifiers Grid -->
+                <div class="form-grid">
+                    <div>
+                        <label for="name" class="admin-label">Food Name (Standard English) *</label>
+                        <input type="text" id="name" class="admin-input" placeholder="e.g. Litti Chokha" required />
+                    </div>
+
+                    <div>
+                        <label for="local_name" class="admin-label">Local / Native Script Name</label>
+                        <input type="text" id="local_name" class="admin-input" placeholder="e.g. लिट्टी चोखा" />
+                    </div>
+
+                    <div>
+                        <label for="state_id" class="admin-label">State of Provenance *</label>
+                        <select id="state_id" class="admin-select" required>
+                            <option value="">-- Select Origin State --</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="category_id" class="admin-label">Food Category *</label>
+                        <select id="category_id" class="admin-select" required>
+                            <option value="">-- Select Category --</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="veg_type" class="admin-label">Dietary Classification *</label>
+                        <select id="veg_type" class="admin-select" required>
+                            <option value="Vegetarian">Vegetarian</option>
+                            <option value="Non-Vegetarian">Non-Vegetarian</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="image_url" class="admin-label">Image Asset Path / URL</label>
+                        <input type="text" id="image_url" class="admin-input" placeholder="/assets/images/litti-chokha.svg" value="/assets/images/placeholder.svg" />
+                    </div>
+
+                    <div class="form-group-full" style="background-color: #FAF6EE; padding: 0.75rem 1rem; border-radius: 6px; border: 1px solid var(--admin-border);">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: 600; cursor: pointer;">
+                            <input type="checkbox" id="featured" />
+                            Highlight as Featured Dish on Landing Page Showcase
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Textual & Cultural Narratives -->
+                <div style="margin-bottom: 1.5rem;">
+                    <label for="short_description" class="admin-label">Short Summary Description *</label>
+                    <textarea id="short_description" class="admin-textarea" rows="2" placeholder="Concise 1-2 sentence overview of the dish..." required></textarea>
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label for="cultural_context" class="admin-label">Cultural & Historical Significance *</label>
+                    <textarea id="cultural_context" class="admin-textarea" rows="4" placeholder="Historical origins, cultural importance, folklore, and note on regional/household variations..." required></textarea>
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label for="traditional_preparation" class="admin-label">Traditional Preparation Traditions *</label>
+                    <textarea id="traditional_preparation" class="admin-textarea" rows="4" placeholder="Traditional artisanal cooking techniques, earthen/iron vessel usage, wood-fire or steaming..." required></textarea>
+                </div>
+
+                <div class="form-grid">
+                    <div>
+                        <label for="seasonality_notes" class="admin-label">Seasonality & Ritu Associations *</label>
+                        <textarea id="seasonality_notes" class="admin-textarea" rows="3" placeholder="Which season(s) it is prepared in and why..." required></textarea>
+                    </div>
+
+                    <div>
+                        <label for="festival_context" class="admin-label">Festival & Ceremonial Context</label>
+                        <textarea id="festival_context" class="admin-textarea" rows="3" placeholder="Festivals, vrat, pooja, or wedding customs associated with this dish..."></textarea>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label for="serving_tradition" class="admin-label">Serving Traditions & Accompaniments</label>
+                    <input type="text" id="serving_tradition" class="admin-input" placeholder="e.g. Served on fresh banana leaves with coconut chutney and hot sambar." />
+                </div>
+
+                <!-- Seasons Selection Checkboxes -->
+                <div style="margin-bottom: 1.5rem; padding: 1.25rem; background-color: #FAF8F5; border-radius: 8px; border: 1px solid var(--admin-border);">
+                    <label class="admin-label" style="margin-bottom: 0.75rem;">Associated Seasons (Select all that apply)</label>
+                    <div id="seasonsCheckboxContainer" style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+
+                <!-- Dynamic Ingredients Section -->
+                <div style="margin-bottom: 1.5rem; padding: 1.25rem; background-color: #FAF8F5; border-radius: 8px; border: 1px solid var(--admin-border);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <div>
+                            <label class="admin-label" style="margin-bottom: 0.2rem;">Ingredients & Agrarian Grains</label>
+                            <p style="font-size: 0.8rem; color: var(--admin-muted); margin: 0;">Specify key ingredients and approximate traditional proportions.</p>
+                        </div>
+                        <button type="button" id="addIngredientRowBtn" class="btn btn-secondary btn-sm">
+                            ➕ Add Ingredient
+                        </button>
+                    </div>
+
+                    <div id="ingredientsContainer">
+                        <!-- Dynamic rows inserted here -->
+                    </div>
+                </div>
+
+                <!-- Bibliographic Sources Checkboxes -->
+                <div style="margin-bottom: 2rem; padding: 1.25rem; background-color: #FAF8F5; border-radius: 8px; border: 1px solid var(--admin-border);">
+                    <label class="admin-label" style="margin-bottom: 0.5rem;">Link Credible Sources / References</label>
+                    <p style="font-size: 0.8rem; color: var(--admin-muted); margin-bottom: 1rem;">Select recognized publications and government archives supporting this entry.</p>
+                    <div id="refsCheckboxContainer" style="max-height: 200px; overflow-y: auto; padding-right: 0.5rem;">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div style="display: flex; justify-content: flex-end; gap: 1rem; border-top: 1px solid var(--admin-border); padding-top: 1.5rem;">
+                    <a href="/admin/dashboard.html" class="btn btn-secondary">
+                        Cancel
+                    </a>
+                    <button type="submit" id="formSubmitBtn" class="btn btn-primary" style="padding: 0.75rem 2rem;">
+                        Save Record
+                    </button>
+                </div>
+
+            </form>
+        </div>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="/admin/admin.js"></script>
+</body>
+</html>

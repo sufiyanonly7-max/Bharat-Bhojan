@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Traditional Indian Foods | Bharat Bhojan</title>
+    <meta name="description" content="Browse, search, and filter authentic traditional Indian dishes by region, state, season, category, and ingredients.">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="site-header">
+        <div class="container nav-wrapper">
+            <a href="/" class="brand-logo" aria-label="Bharat Bhojan Home">
+                <div class="brand-icon">भ</div>
+                <div class="brand-info">
+                    <span class="brand-title">Bharat Bhojan</span>
+                    <span class="brand-subtitle">Traditional Food Knowledge Information System</span>
+                </div>
+            </a>
+
+            <button class="nav-toggle-btn" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                ☰
+            </button>
+
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="/" class="nav-link">Home</a></li>
+                    <li><a href="/explore.html" class="nav-link active">Explore Foods</a></li>
+                    <li><a href="/regions.html" class="nav-link">Regions</a></li>
+                    <li><a href="/seasonal.html" class="nav-link">Seasonal Foods</a></li>
+                    <li><a href="/about.html" class="nav-link">About</a></li>
+                    <li><a href="/references.html" class="nav-link">References</a></li>
+                    <li>
+                        <a href="/admin/login.html" class="nav-admin-btn">
+                            <span>🔒</span> Admin
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Title Header -->
+    <section class="section" style="padding: 2.5rem 0 1.5rem; background: linear-gradient(180deg, #FDF9F4 0%, #FAF5ED 100%); border-bottom: 1px solid var(--border-color);">
+        <div class="container">
+            <span class="section-badge">Culinary Archive</span>
+            <h1 class="section-title" style="margin-bottom: 0.5rem;">Explore Traditional Indian Foods</h1>
+            <p class="section-subtitle" style="max-width: 800px;">
+                Search across regional names, ingredients, festivals, and cultural notes. Use the filters below to explore dishes by state, zone, season, or diet.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content & Filters Section -->
+    <main class="section">
+        <div class="container">
+
+            <!-- Search & Filters Toolbar -->
+            <div class="controls-toolbar">
+                <!-- Search Input Row -->
+                <div style="margin-bottom: 1.25rem;">
+                    <label for="searchInput" style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--medium-slate); letter-spacing: 0.5px; display: block; margin-bottom: 0.4rem;">
+                        Search Database
+                    </label>
+                    <input
+                        type="search"
+                        id="searchInput"
+                        class="filter-input"
+                        placeholder="Search by food name, Hindi/native script, state, key ingredient (e.g. Sattu, Mustard), or festival..."
+                        style="padding: 0.75rem 1rem; font-size: 1.05rem;"
+                    />
+                </div>
+
+                <!-- Multi-criteria Filter Dropdowns -->
+                <div class="filters-grid">
+                    <div class="filter-group">
+                        <label for="filterRegion">Geographical Zone</label>
+                        <select id="filterRegion" class="filter-select">
+                            <option value="">All Regions</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="filterState">State / Province</label>
+                        <select id="filterState" class="filter-select">
+                            <option value="">All States</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="filterSeason">Season (Ritu)</label>
+                        <select id="filterSeason" class="filter-select">
+                            <option value="">All Seasons</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="filterCategory">Food Category</label>
+                        <select id="filterCategory" class="filter-select">
+                            <option value="">All Categories</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="filterDiet">Dietary Classification</label>
+                        <select id="filterDiet" class="filter-select">
+                            <option value="">All Diets</option>
+                            <option value="Vegetarian">Vegetarian</option>
+                            <option value="Non-Vegetarian">Non-Vegetarian</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="sortSelect">Sort Order</label>
+                        <select id="sortSelect" class="filter-select">
+                            <option value="a-z">Alphabetical (A – Z)</option>
+                            <option value="z-a">Alphabetical (Z – A)</option>
+                            <option value="state">By State Name</option>
+                            <option value="newest">Recently Cataloged</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Bottom Toolbar Action Bar -->
+                <div class="toolbar-bottom">
+                    <div class="results-count" id="resultsCount">
+                        Loading database records...
+                    </div>
+                    <button type="button" id="resetFiltersBtn" class="btn btn-secondary btn-sm">
+                        ↺ Reset All Filters
+                    </button>
+                </div>
+            </div>
+
+            <!-- Dynamic Food Cards Grid -->
+            <div class="foods-grid" id="foodsGrid">
+                <!-- Dynamically populated via explore.js -->
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 class="footer-brand-title">Bharat Bhojan</h3>
+                    <p class="footer-brand-desc">
+                        A database-driven traditional food knowledge information system documenting regional foods, ingredients, seasonality, preparation traditions, and cultural context.
+                    </p>
+                    <span class="footer-disclaimer-badge">Curated Educational Prototype</span>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/explore.html">Explore Foods</a></li>
+                        <li><a href="/regions.html">Regional Diversity</a></li>
+                        <li><a href="/seasonal.html">Seasonal Rhythms</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Project Info</h4>
+                    <ul class="footer-links">
+                        <li><a href="/about.html">About Project</a></li>
+                        <li><a href="/references.html">References</a></li>
+                        <li><a href="/admin/login.html">Admin Portal</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Academic Information</h4>
+                    <p style="font-size: 0.85rem; line-height: 1.6; color: #A9A29A;">
+                        <strong>BCA 5th-Semester Project #25</strong><br>
+                        Database + Web Development<br>
+                        Local SQLite & Node.js Architecture
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>© 2026 Bharat Bhojan. Educational Academic Project. Built with Web Fundamentals.</div>
+                <div>Focus: Cultural Knowledge • Structured Database • Zero Overengineering</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/js/main.js"></script>
+    <script src="/js/explore.js"></script>
+</body>
+</html>

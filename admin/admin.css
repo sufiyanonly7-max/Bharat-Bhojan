@@ -1,0 +1,280 @@
+/**
+ * Bharat Bhojan - Administrator Dashboard Stylesheet
+ * Clean, modern, accessible interface for managing food records.
+ */
+
+:root {
+    --admin-primary: #8C321E;
+    --admin-primary-dark: #6D2414;
+    --admin-accent: #D48817;
+    --admin-bg: #F4F1EA;
+    --admin-surface: #FFFFFF;
+    --admin-border: #E0D7C8;
+    --admin-text: #231F1C;
+    --admin-muted: #645E56;
+}
+
+body.admin-body {
+    background-color: var(--admin-bg);
+    color: var(--admin-text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-header {
+    background-color: #1E1B18;
+    color: #FFFFFF;
+    border-bottom: 3px solid var(--admin-primary);
+    padding: 0 1.5rem;
+}
+
+.admin-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.admin-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.admin-brand span.badge {
+    background-color: var(--admin-accent);
+    color: #1E1B18;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.admin-user-menu {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.admin-main {
+    flex: 1;
+    max-width: 1300px;
+    width: 100%;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+/* Metric Cards */
+.admin-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.admin-stat-card {
+    background-color: var(--admin-surface);
+    border: 1px solid var(--admin-border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.admin-stat-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--admin-muted);
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.admin-stat-val {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--admin-primary);
+    line-height: 1;
+}
+
+/* Data Table */
+.table-card {
+    background-color: var(--admin-surface);
+    border: 1px solid var(--admin-border);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.table-header-bar {
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--admin-border);
+    background-color: #FAF8F4;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.admin-table th {
+    background-color: #F5EFE6;
+    color: var(--admin-text);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.85rem 1rem;
+    border-bottom: 2px solid var(--admin-border);
+}
+
+.admin-table td {
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid var(--admin-border);
+    vertical-align: middle;
+    font-size: 0.92rem;
+}
+
+.admin-table tr:hover td {
+    background-color: #FDFBF8;
+}
+
+.table-thumb {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid var(--admin-border);
+}
+
+/* Action Buttons */
+.action-btn-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-action-edit {
+    background-color: #EBF3FC;
+    color: #155FA0;
+    border: 1px solid #B7D6F5;
+    padding: 0.35rem 0.65rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-action-edit:hover {
+    background-color: #155FA0;
+    color: #FFFFFF;
+}
+
+.btn-action-del {
+    background-color: #FDE8E8;
+    color: #C62828;
+    border: 1px solid #F8B4B4;
+    padding: 0.35rem 0.65rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-action-del:hover {
+    background-color: #C62828;
+    color: #FFFFFF;
+}
+
+/* Forms */
+.form-card {
+    background-color: var(--admin-surface);
+    border: 1px solid var(--admin-border);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group-full {
+    grid-column: 1 / -1;
+}
+
+.admin-label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--admin-text);
+    margin-bottom: 0.4rem;
+}
+
+.admin-input, .admin-select, .admin-textarea {
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+    border: 1px solid var(--admin-border);
+    border-radius: 6px;
+    font-size: 0.95rem;
+    background-color: #FAF8F5;
+    box-sizing: border-box;
+}
+
+.admin-input:focus, .admin-select:focus, .admin-textarea:focus {
+    border-color: var(--admin-primary);
+    background-color: #FFFFFF;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(140, 50, 30, 0.1);
+}
+
+/* Dynamic Ingredients Table in Form */
+.ingredient-row {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr auto;
+    gap: 0.75rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+/* Alerts */
+.admin-alert {
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    display: none;
+}
+
+.admin-alert.success {
+    background-color: #E8F5E9;
+    color: #2E7D32;
+    border: 1px solid #A5D6A7;
+    display: block;
+}
+
+.admin-alert.error {
+    background-color: #FFEBEE;
+    color: #C62828;
+    border: 1px solid #EF9A9A;
+    display: block;
+}

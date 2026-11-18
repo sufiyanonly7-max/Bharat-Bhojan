@@ -1,0 +1,29 @@
+{
+  "name": "bharat-bhojan",
+  "version": "1.0.0",
+  "description": "Bharat Bhojan - Traditional Indian Food Knowledge Information System (BCA Academic Project #25)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "setup": "node database/seed.js",
+    "seed": "node database/seed.js",
+    "create-admin": "node database/create-admin.js"
+  },
+  "keywords": [
+    "traditional-food",
+    "indian-knowledge-systems",
+    "iks",
+    "bca-project",
+    "sqlite",
+    "express"
+  ],
+  "author": "BCA Student",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1"
+  }
+}

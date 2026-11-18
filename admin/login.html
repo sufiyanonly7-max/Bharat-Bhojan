@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Sign In | Bharat Bhojan</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body class="admin-body" style="justify-content: center; align-items: center; padding: 2rem 1rem;">
+
+    <div style="width: 100%; max-width: 440px;">
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <a href="/" style="display: inline-flex; align-items: center; gap: 0.75rem; text-decoration: none;">
+                <div class="brand-icon" style="width: 48px; height: 48px; font-size: 1.6rem;">भ</div>
+                <div style="text-align: left;">
+                    <span style="font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700; color: var(--admin-primary); display: block; line-height: 1.1;">
+                        Bharat Bhojan
+                    </span>
+                    <span style="font-size: 0.8rem; color: var(--admin-muted);">Administrator Portal</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="form-card">
+            <h2 style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--admin-text); margin-bottom: 0.5rem; text-align: center;">
+                Admin Authentication
+            </h2>
+            <p style="font-size: 0.9rem; color: var(--admin-muted); text-align: center; margin-bottom: 1.5rem;">
+                Sign in to manage traditional food records, categories, and cultural references.
+            </p>
+
+            <div id="loginAlert" class="admin-alert"></div>
+
+            <form id="adminLoginForm">
+                <div style="margin-bottom: 1.25rem;">
+                    <label for="username" class="admin-label">Username</label>
+                    <input
+                        type="text"
+                        id="username"
+                        class="admin-input"
+                        placeholder="e.g. admin"
+                        required
+                        autocomplete="username"
+                    />
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label for="password" class="admin-label">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        class="admin-input"
+                        placeholder="••••••••"
+                        required
+                        autocomplete="current-password"
+                    />
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.75rem; font-size: 1rem;">
+                    Sign In to Portal
+                </button>
+            </form>
+
+            <div style="margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--admin-border); text-align: center;">
+                <p style="font-size: 0.82rem; color: var(--admin-muted); margin-bottom: 0.75rem;">
+                    Academic Prototype • Authorized access only.<br>
+                    Default setup credentials documented in project README.
+                </p>
+                <a href="/" style="font-size: 0.85rem; color: var(--admin-primary); font-weight: 600;">
+                    ← Return to Public Website
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="/admin/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Bharat Bhojan</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body class="admin-body">
+
+    <!-- Admin Navigation Header -->
+    <header class="admin-header">
+        <div class="admin-nav">
+            <a href="/admin/dashboard.html" class="admin-brand">
+                <span>भ Bharat Bhojan</span>
+                <span class="badge">Admin Portal</span>
+            </a>
+
+            <div class="admin-user-menu">
+                <span style="font-size: 0.9rem; color: #D4C7B4;">
+                    Signed in as: <strong id="adminUsernameDisplay" style="color: #FFFFFF;">admin</strong>
+                </span>
+                <a href="/" target="_blank" class="btn btn-secondary btn-sm" style="background: transparent; color: #FFFFFF; border-color: rgba(255,255,255,0.3);">
+                    🌐 View Live Site
+                </a>
+                <button type="button" onclick="handleLogout()" class="btn btn-sm btn-danger">
+                    🚪 Sign Out
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Dashboard Body -->
+    <main class="admin-main">
+
+        <!-- Top Welcome & Actions Bar -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+            <div>
+                <h1 style="font-family: var(--font-serif); font-size: 2rem; color: var(--admin-primary); margin-bottom: 0.25rem;">
+                    Platform Overview
+                </h1>
+                <p style="font-size: 0.95rem; color: var(--admin-muted);">
+                    Manage traditional food records, ingredients, seasonality data, and academic sources.
+                </p>
+            </div>
+            <div>
+                <a href="/admin/food-form.html" class="btn btn-primary" style="padding: 0.75rem 1.5rem; font-size: 1rem;">
+                    ➕ Add New Food Record
+                </a>
+            </div>
+        </div>
+
+        <!-- Metric Stat Cards -->
+        <div class="admin-stats-grid">
+            <div class="admin-stat-card">
+                <div class="admin-stat-title">Cataloged Dishes</div>
+                <div class="admin-stat-val" id="statTotalFoods">0</div>
+            </div>
+            <div class="admin-stat-card">
+                <div class="admin-stat-title">Represented States</div>
+                <div class="admin-stat-val" id="statTotalStates">0</div>
+            </div>
+            <div class="admin-stat-card">
+                <div class="admin-stat-title">Geographical Zones</div>
+                <div class="admin-stat-val" id="statTotalRegions">0</div>
+            </div>
+            <div class="admin-stat-card">
+                <div class="admin-stat-title">Verified Sources</div>
+                <div class="admin-stat-val" id="statTotalRefs">0</div>
+            </div>
+            <div class="admin-stat-card">
+                <div class="admin-stat-title">Dietary Profile</div>
+                <div class="admin-stat-val" id="statVegRatio" style="font-size: 1.35rem; color: var(--admin-text); padding-top: 0.4rem;">
+                    0 Veg / 0 Non-Veg
+                </div>
+            </div>
+        </div>
+
+        <!-- Food Records Data Management Table -->
+        <div class="table-card">
+            <div class="table-header-bar">
+                <div>
+                    <h2 style="font-family: var(--font-serif); font-size: 1.35rem; color: var(--admin-text); margin-bottom: 0.25rem;">
+                        Food Records Management
+                    </h2>
+                    <p style="font-size: 0.85rem; color: var(--admin-muted);">
+                        Filter, inspect, edit, or delete dishes in the database.
+                    </p>
+                </div>
+                <div style="min-width: 280px;">
+                    <input
+                        type="search"
+                        id="tableSearchInput"
+                        class="admin-input"
+                        placeholder="Search food name, state, or category..."
+                        style="padding: 0.5rem 0.85rem; font-size: 0.9rem;"
+                    />
+                </div>
+            </div>
+
+            <div style="overflow-x: auto;">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 60px;">ID</th>
+                            <th style="width: 70px;">Image</th>
+                            <th>Dish Name</th>
+                            <th>State & Region</th>
+                            <th>Category</th>
+                            <th>Diet</th>
+                            <th style="text-align: center; width: 180px;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminFoodsTableBody">
+                        <tr>
+                            <td colspan="7" style="text-align: center; padding: 2rem;">Loading records...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="/admin/admin.js"></script>
+</body>
+</html>

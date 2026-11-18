@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EEF5ED"/>
+      <stop offset="100%" stop-color="#FFFFFF"/>
+    </linearGradient>
+    <radialGradient id="plateShine" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#C7DEC4" stop-opacity="0.4"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="600" height="400" fill="url(#bgGrad)"/>
+  <rect x="15" y="15" width="570" height="370" rx="16" fill="none" stroke="#C7DEC4" stroke-width="2" stroke-dasharray="8 6"/>
+
+  <!-- Indian Decorative Mandala Watermark -->
+  <g opacity="0.08" transform="translate(300, 180) scale(1.4)">
+    <circle r="90" fill="none" stroke="#1D4E37" stroke-width="3"/>
+    <circle r="70" fill="none" stroke="#1D4E37" stroke-width="2"/>
+    <circle r="50" fill="none" stroke="#1D4E37" stroke-width="1.5"/>
+    <path d="M0 -90 L15 -70 L0 -50 L-15 -70 Z M90 0 L70 15 L50 0 L70 -15 Z M0 90 L15 70 L0 50 L-15 70 Z M-90 0 L-70 15 L-50 0 L-70 -15 Z" fill="#1D4E37"/>
+    <path d="M64 -64 L50 -40 L35 -50 L40 -35 Z M64 64 L50 40 L35 50 L40 35 Z M-64 64 L-50 40 L-35 50 L-40 35 Z M-64 -64 L-50 -40 L-35 -50 L-40 -35 Z" fill="#1D4E37"/>
+  </g>
+
+  <!-- Central Earthen Cooking Vessel / Platter -->
+  <g transform="translate(300, 175)">
+    <!-- Base Plate Shadow -->
+    <ellipse cx="0" cy="55" rx="140" ry="24" fill="#000000" opacity="0.08"/>
+
+    <!-- Plate / Thali Rim -->
+    <ellipse cx="0" cy="40" rx="130" ry="45" fill="#C7DEC4"/>
+    <ellipse cx="0" cy="38" rx="122" ry="40" fill="url(#plateShine)"/>
+    <ellipse cx="0" cy="36" rx="108" ry="32" fill="#EEF5ED"/>
+
+    <!-- Inner Earthen / Brass Handi Bowl -->
+    <path d="M-80 15 C-85 60, 85 60, 80 15 C75 3, -75 3, -80 15 Z" fill="#2E6B4E" opacity="0.95"/>
+    <ellipse cx="0" cy="15" rx="78" ry="22" fill="#1D4E37"/>
+    <ellipse cx="0" cy="15" rx="68" ry="18" fill="#FDFBF7" opacity="0.9"/>
+
+    <!-- Dish Graphic Rendering -->
+    <g transform="translate(0, 10)">
+      <circle cx="-25" cy="-2" r="16" fill="#2E6B4E" opacity="0.9"/>
+      <circle cx="22" cy="-4" r="18" fill="#2E6B4E"/>
+      <circle cx="0" cy="6" r="15" fill="#C7DEC4"/>
+      <circle cx="-8" cy="-8" r="14" fill="#1D4E37" opacity="0.85"/>
+      <!-- Garnish Leaves / Cumin Seeds -->
+      <path d="M-6 -2 C-12 -12, -2 -14, 2 -8 C4 -2, 0 4, -6 -2 Z" fill="#2E6B4E"/>
+      <path d="M8 2 C14 -8, 20 -4, 16 4 C12 8, 4 6, 8 2 Z" fill="#3E835F"/>
+      <circle cx="-14" cy="4" r="2.5" fill="#D48817"/>
+      <circle cx="12" cy="-2" r="2.5" fill="#D48817"/>
+      <circle cx="0" cy="-14" r="2" fill="#D48817"/>
+    </g>
+
+    <!-- Rising Steam Swirls -->
+    <path d="M-28 -20 C-36 -45, -20 -60, -28 -80" fill="none" stroke="#2E6B4E" stroke-width="2.5" stroke-linecap="round" opacity="0.45"/>
+    <path d="M0 -25 C8 -50, -8 -65, 0 -90" fill="none" stroke="#2E6B4E" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+    <path d="M28 -20 C20 -45, 36 -60, 28 -80" fill="none" stroke="#2E6B4E" stroke-width="2.5" stroke-linecap="round" opacity="0.45"/>
+  </g>
+
+  <!-- Cultural Region Badge -->
+  <g transform="translate(300, 285)">
+    <rect x="-140" y="0" width="280" height="26" rx="13" fill="#2E6B4E" opacity="0.12"/>
+    <text x="0" y="17" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#1D4E37" text-anchor="middle" letter-spacing="1">
+      PUNJAB • MAKKI ROTI
+    </text>
+  </g>
+
+  <!-- Dish Title Header Banner -->
+  <g transform="translate(300, 335)">
+    <text x="0" y="0" font-family="'Georgia', 'Times New Roman', serif" font-size="24" font-weight="bold" fill="#21382A" text-anchor="middle">
+      Sarson Ka Saag
+    </text>
+    <text x="0" y="24" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" fill="#1D4E37" text-anchor="middle" letter-spacing="0.5">
+      Traditional Indian Culinary Knowledge Archive
+    </text>
+  </g>
+</svg>

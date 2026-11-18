@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bharat Bhojan | Traditional Indian Food Knowledge Information System</title>
+    <meta name="description" content="Explore traditional Indian regional dishes, ingredients, seasonal traditions, and the cultural stories behind India's diverse food heritage.">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+    <!-- Site Header & Navigation -->
+    <header class="site-header">
+        <div class="container nav-wrapper">
+            <a href="/" class="brand-logo" aria-label="Bharat Bhojan Home">
+                <div class="brand-icon">भ</div>
+                <div class="brand-info">
+                    <span class="brand-title">Bharat Bhojan</span>
+                    <span class="brand-subtitle">Traditional Food Knowledge Information System</span>
+                </div>
+            </a>
+
+            <button class="nav-toggle-btn" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                ☰
+            </button>
+
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="/" class="nav-link active">Home</a></li>
+                    <li><a href="/explore.html" class="nav-link">Explore Foods</a></li>
+                    <li><a href="/regions.html" class="nav-link">Regions</a></li>
+                    <li><a href="/seasonal.html" class="nav-link">Seasonal Foods</a></li>
+                    <li><a href="/about.html" class="nav-link">About</a></li>
+                    <li><a href="/references.html" class="nav-link">References</a></li>
+                    <li>
+                        <a href="/admin/login.html" class="nav-admin-btn">
+                            <span>🔒</span> Admin
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container hero-content">
+            <span class="hero-tag">
+                <span>🌾</span> Indian Knowledge Systems (IKS) • Academic Project #25
+            </span>
+            <h1 class="hero-title">
+                Discover India's Traditional Food Knowledge
+            </h1>
+            <p class="hero-subtitle">
+                Explore regional dishes, ingredients, seasonal traditions and the cultural stories behind India’s diverse food heritage.
+            </p>
+
+            <div class="hero-actions">
+                <a href="/explore.html" class="btn btn-primary">
+                    Explore All Foods →
+                </a>
+                <a href="/regions.html" class="btn btn-secondary">
+                    Browse by Region
+                </a>
+            </div>
+
+            <!-- Integrated Fast Search Box -->
+            <div class="hero-search-wrapper">
+                <form action="/explore.html" method="GET" class="search-box">
+                    <input
+                        type="text"
+                        name="search"
+                        placeholder="Search by dish name, state, ingredient, or festival..."
+                        aria-label="Search traditional foods"
+                        required
+                    />
+                    <button type="submit">Search Foods</button>
+                </form>
+                <div class="quick-tags">
+                    <span>Popular Searches:</span>
+                    <a href="/explore.html?search=Litti%20Chokha" class="quick-tag-item">Litti Chokha</a>
+                    <a href="/explore.html?search=Sattu" class="quick-tag-item">Sattu</a>
+                    <a href="/explore.html?search=Thekua" class="quick-tag-item">Thekua</a>
+                    <a href="/explore.html?search=Sarson" class="quick-tag-item">Sarson Ka Saag</a>
+                    <a href="/explore.html?search=Dosa" class="quick-tag-item">Masala Dosa</a>
+                    <a href="/explore.html?search=Dhokla" class="quick-tag-item">Dhokla</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Platform Statistics Counter Bar -->
+    <section class="stats-bar" aria-label="Platform Statistics">
+        <div class="container">
+            <div class="stats-grid" id="statsGrid">
+                <div class="stat-item">
+                    <div class="stat-number" id="statFoods">35+</div>
+                    <div class="stat-label">Traditional Dishes</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="statStates">20+</div>
+                    <div class="stat-label">States Represented</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="statRegions">6</div>
+                    <div class="stat-label">Geographical Zones</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="statRefs">10+</div>
+                    <div class="stat-label">Verified Sources</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Traditional Dishes Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Curated Heritage</span>
+                <h2 class="section-title">Featured Traditional Dishes</h2>
+                <p class="section-subtitle">
+                    Handpicked culinary classics celebrating centuries of regional wisdom, seasonal harmony, and indigenous ingredients.
+                </p>
+            </div>
+
+            <div class="foods-grid" id="featuredGrid">
+                <!-- Dynamically populated via JavaScript -->
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="/explore.html" class="btn btn-secondary" style="padding: 0.8rem 2rem;">
+                    View Complete Food Archive (35+ Dishes) →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Indian Regional Overview Section -->
+    <section class="section" style="background-color: var(--bg-subtle);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Geographical Diversity</span>
+                <h2 class="section-title">Explore by Indian Regions</h2>
+                <p class="section-subtitle">
+                    Discover how geography, river basins, soil profiles, and local cultures shaped distinctive culinary traditions across India.
+                </p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                <div class="content-block" style="margin-bottom: 0;">
+                    <h3 style="font-family: var(--font-serif); font-size: 1.35rem; color: var(--primary); margin-bottom: 0.5rem;">
+                        East India
+                    </h3>
+                    <p style="font-size: 0.95rem; color: var(--medium-slate); margin-bottom: 1rem;">
+                        Fertile Gangetic plains and coastal deltas across Bihar, Bengal, and Odisha. Renowned for sattu, mustard oil, freshwater fish, chhena sweets, and ancient steaming techniques.
+                    </p>
+                    <a href="/regions.html?region=East%20India" class="btn btn-sm btn-secondary">Explore East India →</a>
+                </div>
+
+                <div class="content-block" style="margin-bottom: 0;">
+                    <h3 style="font-family: var(--font-serif); font-size: 1.35rem; color: var(--primary); margin-bottom: 0.5rem;">
+                        North India
+                    </h3>
+                    <p style="font-size: 0.95rem; color: var(--medium-slate); margin-bottom: 1rem;">
+                        Himalayan valleys and rich Indo-Gangetic wheat belts across Punjab, Kashmir, Himachal, and UP. Famous for slow-cooked saag, warming winter grains, and aromatic mountain herbs.
+                    </p>
+                    <a href="/regions.html?region=North%20India" class="btn btn-sm btn-secondary">Explore North India →</a>
+                </div>
+
+                <div class="content-block" style="margin-bottom: 0;">
+                    <h3 style="font-family: var(--font-serif); font-size: 1.35rem; color: var(--primary); margin-bottom: 0.5rem;">
+                        South India
+                    </h3>
+                    <p style="font-size: 0.95rem; color: var(--medium-slate); margin-bottom: 1rem;">
+                        Peninsular coastal plateaus rich in rice, black gram fermentation, fresh coconut, tamarind, and peppercorns spanning Tamil Nadu, Kerala, Karnataka, and Telangana.
+                    </p>
+                    <a href="/regions.html?region=South%20India" class="btn btn-sm btn-secondary">Explore South India →</a>
+                </div>
+
+                <div class="content-block" style="margin-bottom: 0;">
+                    <h3 style="font-family: var(--font-serif); font-size: 1.35rem; color: var(--primary); margin-bottom: 0.5rem;">
+                        West India
+                    </h3>
+                    <p style="font-size: 0.95rem; color: var(--medium-slate); margin-bottom: 1rem;">
+                        Desert ingenuity and coastal Konkan richness spanning Rajasthan, Gujarat, Maharashtra, and Goa. Celebrated for pulse dumplings, fermented farsan, and kokum curries.
+                    </p>
+                    <a href="/regions.html?region=West%20India" class="btn btn-sm btn-secondary">Explore West India →</a>
+                </div>
+
+                <div class="content-block" style="margin-bottom: 0;">
+                    <h3 style="font-family: var(--font-serif); font-size: 1.35rem; color: var(--primary); margin-bottom: 0.5rem;">
+                        Central India
+                    </h3>
+                    <p style="font-size: 0.95rem; color: var(--medium-slate); margin-bottom: 1rem;">
+                        The cultural crossroads of Madhya Pradesh and Chhattisgarh. Renowned for tender monsoon corn (bhutta), steamed flattened rice (poha), and indigenous forest grains.
+                    </p>
+                    <a href="/regions.html?region=Central%20India" class="btn btn-sm btn-secondary">Explore Central India →</a>
+                </div>
+
+                <div class="content-block" style="margin-bottom: 0;">
+                    <h3 style="font-family: var(--font-serif); font-size: 1.35rem; color: var(--primary); margin-bottom: 0.5rem;">
+                        North-East India
+                    </h3>
+                    <p style="font-size: 0.95rem; color: var(--medium-slate); margin-bottom: 1rem;">
+                        Biodiversity-rich hills and valleys of Assam, Nagaland, Manipur, and Sikkim. Characterized by natural banana-ash alkali (kolakhar), fermented bamboo shoots, and zero-oil stews.
+                    </p>
+                    <a href="/regions.html?region=North-East%20India" class="btn btn-sm btn-secondary">Explore North-East India →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seasonal Rhythm Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Ritu-Charya</span>
+                <h2 class="section-title">Harmonized with the Seasons</h2>
+                <p class="section-subtitle">
+                    In traditional Indian food wisdom, dietary choices followed the six natural seasons (Shad-Ritu), balancing bodily wellness with agricultural harvests.
+                </p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;">
+                <div class="content-block" style="border-top: 4px solid var(--accent-gold); margin-bottom: 0;">
+                    <h4 style="font-family: var(--font-serif); font-size: 1.25rem; color: var(--primary); margin-bottom: 0.25rem;">Summer (Grishma)</h4>
+                    <p style="font-size: 0.9rem; color: var(--medium-slate); margin-bottom: 1rem;">Hydrating sattu drinks, light fish broths with elephant apple, and cooling buttermilk.</p>
+                    <a href="/seasonal.html?season=Summer" style="font-size: 0.85rem; font-weight: 600; color: var(--primary);">View Summer Foods →</a>
+                </div>
+
+                <div class="content-block" style="border-top: 4px solid var(--sage-green); margin-bottom: 0;">
+                    <h4 style="font-family: var(--font-serif); font-size: 1.25rem; color: var(--primary); margin-bottom: 0.25rem;">Monsoon (Varsha)</h4>
+                    <p style="font-size: 0.9rem; color: var(--medium-slate); margin-bottom: 1rem;">Tender grated corn (bhutte ka kees), tangy kadhi pakoras, and digestive warming spices.</p>
+                    <a href="/seasonal.html?season=Monsoon" style="font-size: 0.85rem; font-weight: 600; color: var(--primary);">View Monsoon Foods →</a>
+                </div>
+
+                <div class="content-block" style="border-top: 4px solid var(--primary); margin-bottom: 0;">
+                    <h4 style="font-family: var(--font-serif); font-size: 1.25rem; color: var(--primary); margin-bottom: 0.25rem;">Winter (Shishir / Hemant)</h4>
+                    <p style="font-size: 0.9rem; color: var(--medium-slate); margin-bottom: 1rem;">Mustard greens with makki roti, sesame-jaggery tilkut, litti chokha, and steaming thukpa.</p>
+                    <a href="/seasonal.html?season=Winter" style="font-size: 0.85rem; font-weight: 600; color: var(--primary);">View Winter Foods →</a>
+                </div>
+
+                <div class="content-block" style="border-top: 4px solid var(--accent-gold); margin-bottom: 0;">
+                    <h4 style="font-family: var(--font-serif); font-size: 1.25rem; color: var(--primary); margin-bottom: 0.25rem;">Autumn (Sharad)</h4>
+                    <p style="font-size: 0.9rem; color: var(--medium-slate); margin-bottom: 1rem;">Post-monsoon harvest sweets, celebratory thekua for Chhath, and creamy Onam Avial.</p>
+                    <a href="/seasonal.html?season=Autumn" style="font-size: 0.85rem; font-weight: 600; color: var(--primary);">View Autumn Foods →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Context & Academic Philosophy Box -->
+    <section class="section" style="background-color: #FFFDF9; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+        <div class="container" style="max-width: 900px; text-align: center;">
+            <span class="section-badge">Academic Positioning</span>
+            <h2 class="section-title" style="font-size: 2rem;">Why Digital Documentation Matters</h2>
+            <p style="font-size: 1.05rem; color: var(--medium-slate); line-height: 1.8; margin-bottom: 1.5rem;">
+                Traditional Indian food knowledge is rich, sophisticated, and deeply tied to local agro-ecology, yet often distributed across regional books, family memories, and oral traditions.
+                <strong>Bharat Bhojan</strong> demonstrates how a normalized database and accessible web technologies can structure, categorize, and preserve this cultural knowledge for future generations.
+            </p>
+            <div class="academic-callout" style="text-align: left;">
+                <strong>Curated Educational Prototype:</strong>
+                This application is developed as an academic project (BCA 5th Semester, Project #25) to illustrate relational database design, REST APIs, and responsive web development. Information is sourced from recognized cultural publications, government tourism archives, and scholarly works. It does not provide medical or health claims.
+            </div>
+        </div>
+    </section>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 class="footer-brand-title">Bharat Bhojan</h3>
+                    <p class="footer-brand-desc">
+                        A database-driven traditional food knowledge information system documenting regional foods, ingredients, seasonality, preparation traditions, and cultural context.
+                    </p>
+                    <span class="footer-disclaimer-badge">Curated Educational Prototype</span>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/explore.html">Explore Foods</a></li>
+                        <li><a href="/regions.html">Regional Diversity</a></li>
+                        <li><a href="/seasonal.html">Seasonal Rhythms</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Project Info</h4>
+                    <ul class="footer-links">
+                        <li><a href="/about.html">About Project</a></li>
+                        <li><a href="/references.html">References</a></li>
+                        <li><a href="/admin/login.html">Admin Portal</a></li>
+                        <li><a href="/docs/api-documentation.md" target="_blank">API Docs</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Academic Information</h4>
+                    <p style="font-size: 0.85rem; line-height: 1.6; color: #A9A29A;">
+                        <strong>BCA 5th-Semester Project #25</strong><br>
+                        Technology: Node.js • Express.js • SQLite • HTML5 • CSS3 • Vanilla JS<br>
+                        Location: Local System Prototype
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>© 2026 Bharat Bhojan. Educational Academic Project. Built with Web Fundamentals.</div>
+                <div>Focus: Cultural Knowledge • Structured Database • Zero Overengineering</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/js/main.js"></script>
+    <script>
+        // Load featured dishes specifically for the home landing page
+        document.addEventListener('DOMContentLoaded', async () => {
+            const grid = document.getElementById('featuredGrid');
+            if (!grid) return;
+
+            grid.innerHTML = `
+                <div class="state-container" style="grid-column: 1 / -1;">
+                    <div class="spinner"></div>
+                    <h3 class="state-title">Loading Featured Traditional Dishes...</h3>
+                </div>
+            `;
+
+            try {
+                const response = await fetch('/api/foods/featured');
+                const json = await response.json();
+
+                if (json.success && json.data && json.data.length > 0) {
+                    // Display up to 6 featured dishes on the homepage
+                    const featured = json.data.slice(0, 6);
+                    grid.innerHTML = featured.map(f => createFoodCardHtml(f)).join('');
+                } else {
+                    grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center;">No featured foods available.</p>`;
+                }
+            } catch (err) {
+                console.error('Error loading featured dishes:', err);
+                grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--primary);">Unable to load featured foods.</p>`;
+            }
+        });
+    </script>
+</body>
+</html>

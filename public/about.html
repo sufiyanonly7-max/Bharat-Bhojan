@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Project | Bharat Bhojan</title>
+    <meta name="description" content="Academic scope, objectives, technical stack, and Indian Knowledge System foundation behind the Bharat Bhojan Information System.">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="site-header">
+        <div class="container nav-wrapper">
+            <a href="/" class="brand-logo" aria-label="Bharat Bhojan Home">
+                <div class="brand-icon">भ</div>
+                <div class="brand-info">
+                    <span class="brand-title">Bharat Bhojan</span>
+                    <span class="brand-subtitle">Traditional Food Knowledge Information System</span>
+                </div>
+            </a>
+
+            <button class="nav-toggle-btn" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                ☰
+            </button>
+
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="/" class="nav-link">Home</a></li>
+                    <li><a href="/explore.html" class="nav-link">Explore Foods</a></li>
+                    <li><a href="/regions.html" class="nav-link">Regions</a></li>
+                    <li><a href="/seasonal.html" class="nav-link">Seasonal Foods</a></li>
+                    <li><a href="/about.html" class="nav-link active">About</a></li>
+                    <li><a href="/references.html" class="nav-link">References</a></li>
+                    <li>
+                        <a href="/admin/login.html" class="nav-admin-btn">
+                            <span>🔒</span> Admin
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header Banner -->
+    <section class="section" style="padding: 2.5rem 0 1.5rem; background: linear-gradient(180deg, #FDF9F4 0%, #FAF5ED 100%); border-bottom: 1px solid var(--border-color);">
+        <div class="container">
+            <span class="section-badge">Academic Project Overview</span>
+            <h1 class="section-title" style="margin-bottom: 0.5rem;">About Bharat Bhojan</h1>
+            <p class="section-subtitle" style="max-width: 800px;">
+                A curated educational prototype exploring relational database design and web development applied to traditional Indian food heritage.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content Container -->
+    <main class="section">
+        <div class="container" style="max-width: 900px;">
+
+            <!-- Section 1: What is Bharat Bhojan? -->
+            <div class="content-block">
+                <h2 class="content-block-title">
+                    <span>🍲</span> What is Bharat Bhojan?
+                </h2>
+                <p class="content-block-text">
+                    <strong>Bharat Bhojan</strong> (Traditional Indian Food Knowledge Information System) is a database-driven academic web application built for <strong>BCA 5th-Semester Project #25</strong>. It provides an organized, searchable digital repository documenting traditional Indian regional foods, indigenous ingredients, seasonal (Ritu) adaptations, traditional cooking techniques, and cultural context.
+                </p>
+                <p class="content-block-text" style="margin-top: 1rem;">
+                    Unlike generic recipe blogs that focus solely on rapid step-by-step measurements, Bharat Bhojan positions food within its broader cultural, historical, and ecological context—examining why particular dishes emerged, how ancient preservation methods (like fermentation, sun-drying, and ash-filtering) functioned, and how seasonal cycles governed traditional culinary habits.
+                </p>
+            </div>
+
+            <!-- Section 2: Indian Knowledge Systems (IKS) Foundation -->
+            <div class="content-block">
+                <h2 class="content-block-title">
+                    <span>📜</span> Indian Knowledge Systems (IKS) Foundation
+                </h2>
+                <p class="content-block-text">
+                    In this project, <em>Traditional Indian Food Knowledge</em> refers to the accumulated, time-tested culinary wisdom developed across Indian communities over centuries. Key aspects documented include:
+                </p>
+                <ul style="margin: 1rem 0 1rem 1.5rem; line-height: 1.8; color: var(--dark-slate);">
+                    <li><strong>Ritu-Charya (Seasonal Discipline):</strong> Aligning food consumption with the six traditional Indian seasons (Shad-Ritu) to maintain equilibrium with local climate conditions.</li>
+                    <li><strong>Indigenous Preservation & Chemistry:</strong> Ancient natural preservation wisdom such as natural wild fermentation (Dosa, Dhokla, Misal), alkaline filtration (Assamese Kolakhar), sun-cured rinds (Goan Kokum), and earthen baking (Bihari Litti, Odia Chhena Poda).</li>
+                    <li><strong>Agrarian & Ecological Alignment:</strong> Use of drought-tolerant native grains (sattu, maize, millets) and wild greens (bathua, sarson) adapted to specific soil and weather zones.</li>
+                    <li><strong>Cultural & Festival Context:</strong> Ritual significance in sacred prasad (Chhath Puja Thekua, Jagannath Puri Dalma, Onam Sadya Avial).</li>
+                </ul>
+            </div>
+
+            <!-- Section 3: Why Digital Documentation Matters -->
+            <div class="content-block">
+                <h2 class="content-block-title">
+                    <span>💻</span> Importance of Digital Documentation
+                </h2>
+                <p class="content-block-text">
+                    Traditional culinary knowledge is often distributed across rare monographs, regional publications, and familial oral traditions. As dietary patterns modernize, indigenous ingredients and seasonal cooking traditions risk being forgotten.
+                </p>
+                <p class="content-block-text" style="margin-top: 1rem;">
+                    Computer science offers practical tools—relational databases, structured normalization, and search APIs—to catalog, cross-reference, and make this knowledge systematically discoverable. Bharat Bhojan demonstrates how fundamental database principles directly support cultural preservation.
+                </p>
+            </div>
+
+            <!-- Section 4: Project Objectives -->
+            <div class="content-block">
+                <h2 class="content-block-title">
+                    <span>🎯</span> Project Objectives
+                </h2>
+                <ul style="margin: 0.5rem 0 0.5rem 1.5rem; line-height: 1.8; color: var(--dark-slate);">
+                    <li>Digitally document selected traditional Indian dishes with verified cultural and culinary attributes.</li>
+                    <li>Design and implement a normalized relational database (3NF) managing foods, ingredients, seasons, and references.</li>
+                    <li>Build an intuitive, responsive web portal supporting multi-criteria filtering, keyword search, and detail views.</li>
+                    <li>Develop a secure, session-authenticated administrative portal for full CRUD operations.</li>
+                    <li>Demonstrate software engineering fundamentals without depending on heavy commercial frameworks.</li>
+                    <li>Promote informed awareness of India’s multifaceted regional food heritage.</li>
+                </ul>
+            </div>
+
+            <!-- Section 5: Technology Stack -->
+            <div class="content-block">
+                <h2 class="content-block-title">
+                    <span>⚙️</span> Technology Stack & Architecture
+                </h2>
+                <div class="meta-key-value-grid" style="margin-top: 1rem;">
+                    <div>
+                        <span class="meta-item-label">Frontend Layer</span>
+                        <p class="meta-item-value">HTML5, CSS3, Vanilla JavaScript (No React/Tailwind)</p>
+                    </div>
+                    <div>
+                        <span class="meta-item-label">Backend Layer</span>
+                        <p class="meta-item-value">Node.js, Express.js (RESTful MVC Architecture)</p>
+                    </div>
+                    <div>
+                        <span class="meta-item-label">Database Management</span>
+                        <p class="meta-item-value">SQLite (node:sqlite) + SQL Query Engine</p>
+                    </div>
+                    <div>
+                        <span class="meta-item-label">Security & Authentication</span>
+                        <p class="meta-item-value">bcryptjs Password Hashing, express-session</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 6: Academic Scope & Honest Limitations -->
+            <div class="content-block">
+                <h2 class="content-block-title">
+                    <span>⚖️</span> Academic Scope & Limitations
+                </h2>
+                <div class="academic-callout" style="margin-top: 0;">
+                    <strong>Academic Positioning:</strong>
+                    This system is a curated educational prototype developed for academic demonstration. It does not claim to represent an exhaustive encyclopedia of all sub-regional Indian dishes or assert an absolute "single authentic recipe" for any food.
+                </div>
+                <ul style="margin: 1rem 0 1rem 1.5rem; line-height: 1.8; color: var(--dark-slate);">
+                    <li><strong>No Medical or Health Claims:</strong> The platform documents cultural traditions and historical dietary habits. It does not provide medical, therapeutic, or nutritional health advice.</li>
+                    <li><strong>Regional & Household Variations:</strong> Ingredients, ratios, and cooking styles naturally differ across villages, communities, and households. Baseline entries reflect common verified patterns.</li>
+                    <li><strong>Curated Seed Size:</strong> Contains 37 carefully researched regional dishes across 25 states and 6 geographical regions chosen to demonstrate geographic diversity and relational database design.</li>
+                </ul>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 class="footer-brand-title">Bharat Bhojan</h3>
+                    <p class="footer-brand-desc">
+                        A database-driven traditional food knowledge information system documenting regional foods, ingredients, seasonality, preparation traditions, and cultural context.
+                    </p>
+                    <span class="footer-disclaimer-badge">Curated Educational Prototype</span>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/explore.html">Explore Foods</a></li>
+                        <li><a href="/regions.html">Regional Diversity</a></li>
+                        <li><a href="/seasonal.html">Seasonal Rhythms</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Project Info</h4>
+                    <ul class="footer-links">
+                        <li><a href="/about.html">About Project</a></li>
+                        <li><a href="/references.html">References</a></li>
+                        <li><a href="/admin/login.html">Admin Portal</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Academic Information</h4>
+                    <p style="font-size: 0.85rem; line-height: 1.6; color: #A9A29A;">
+                        <strong>BCA 5th-Semester Project #25</strong><br>
+                        Relational Database Model: SQLite<br>
+                        REST-Driven MVC Pattern
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>© 2026 Bharat Bhojan. Educational Academic Project. Built with Web Fundamentals.</div>
+                <div>Focus: Cultural Knowledge • Structured Database • Zero Overengineering</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/js/main.js"></script>
+</body>
+</html>
