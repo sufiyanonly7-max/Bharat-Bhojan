@@ -23,6 +23,15 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Restore original request URL if rewritten by Vercel serverless functions
+app.use((req, res, next) => {
+    const vercelPath = req.headers['x-matched-path'] || req.headers['x-invoke-path'] || req.headers['x-vercel-matched-path'];
+    if (vercelPath && (req.url === '/server.js' || req.url === '/api/index.js' || req.url === '/')) {
+        req.url = vercelPath;
+    }
+    next();
+});
+
 // Session Middleware for Admin Authentication
 app.use(session({
     secret: process.env.SESSION_SECRET || 'bharat_bhojan_academic_default_secret_2026',
