@@ -23,12 +23,9 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Restore original request URL if rewritten by Vercel serverless functions
+// Request Logging
 app.use((req, res, next) => {
-    const vercelPath = req.headers['x-matched-path'] || req.headers['x-invoke-path'] || req.headers['x-vercel-matched-path'];
-    if (vercelPath && (req.url === '/server.js' || req.url === '/api/index.js' || req.url === '/')) {
-        req.url = vercelPath;
-    }
+    console.log(`[HTTP] ${req.method} ${req.url}`);
     next();
 });
 
