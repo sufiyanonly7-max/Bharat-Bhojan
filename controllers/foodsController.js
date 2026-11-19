@@ -38,7 +38,8 @@ function attachSeasons(foods) {
  */
 function getAllFoods(req, res, next) {
     try {
-        const { state, region, season, category, veg_type, sort, featured } = req.query;
+        const { state, region, season, category, veg_type, sort, featured, q, search } = req.query;
+        const searchQuery = (q || search || '').trim();
 
         let sql = `
             SELECT DISTINCT
@@ -55,6 +56,29 @@ function getAllFoods(req, res, next) {
 
         const conditions = [];
         const params = [];
+
+        // Join ingredients if searching text
+        if (searchQuery) {
+            sql += `
+                LEFT JOIN food_ingredients fi ON f.id = fi.food_id
+                LEFT JOIN ingredients i ON fi.ingredient_id = i.id
+            `;
+            const searchPattern = `%${searchQuery}%`;
+            conditions.push(`(
+                f.name LIKE ?
+                OR f.local_name LIKE ?
+                OR s.name LIKE ?
+                OR r.name LIKE ?
+                OR c.name LIKE ?
+                OR f.short_description LIKE ?
+                OR f.cultural_context LIKE ?
+                OR i.name LIKE ?
+            )`);
+            params.push(
+                searchPattern, searchPattern, searchPattern, searchPattern,
+                searchPattern, searchPattern, searchPattern, searchPattern
+            );
+        }
 
         // Join seasons junction table if filtering by season
         if (season && season.trim() !== '' && season.toLowerCase() !== 'all') {
@@ -112,8 +136,22 @@ function getAllFoods(req, res, next) {
                 sql += ' ORDER BY f.id DESC';
                 break;
             case 'a-z':
-            default:
                 sql += ' ORDER BY f.name ASC';
+                break;
+            default:
+                if (searchQuery) {
+                    sql += ` ORDER BY
+                        CASE
+                            WHEN LOWER(f.name) LIKE LOWER(?) THEN 1
+                            WHEN LOWER(f.name) LIKE LOWER(?) THEN 2
+                            WHEN LOWER(s.name) LIKE LOWER(?) THEN 3
+                            ELSE 4
+                        END,
+                        f.name ASC`;
+                    params.push(`${searchQuery}%`, `%${searchQuery}%`, `%${searchQuery}%`);
+                } else {
+                    sql += ' ORDER BY f.name ASC';
+                }
                 break;
         }
 

@@ -95,14 +95,16 @@ function readUrlParams() {
     const regionVal = params.get('region');
     const seasonVal = params.get('season');
     const catVal = params.get('category');
-    const vegVal = params.get('veg_type');
+    const vegVal = params.get('veg_type') || params.get('diet');
+    const sortVal = params.get('sort');
 
-    if (searchVal) document.getElementById('searchInput').value = searchVal;
-    if (stateVal) document.getElementById('filterState').value = stateVal;
-    if (regionVal) document.getElementById('filterRegion').value = regionVal;
-    if (seasonVal) document.getElementById('filterSeason').value = seasonVal;
-    if (catVal) document.getElementById('filterCategory').value = catVal;
-    if (vegVal) document.getElementById('filterDiet').value = vegVal;
+    if (searchVal && document.getElementById('searchInput')) document.getElementById('searchInput').value = searchVal;
+    if (stateVal && document.getElementById('filterState')) document.getElementById('filterState').value = stateVal;
+    if (regionVal && document.getElementById('filterRegion')) document.getElementById('filterRegion').value = regionVal;
+    if (seasonVal && document.getElementById('filterSeason')) document.getElementById('filterSeason').value = seasonVal;
+    if (catVal && document.getElementById('filterCategory')) document.getElementById('filterCategory').value = catVal;
+    if (vegVal && document.getElementById('filterDiet')) document.getElementById('filterDiet').value = vegVal;
+    if (sortVal && document.getElementById('sortSelect')) document.getElementById('sortSelect').value = sortVal;
 }
 
 /**
@@ -183,23 +185,16 @@ async function fetchAndRenderFoods() {
     const sortVal = document.getElementById('sortSelect')?.value || 'a-z';
 
     try {
-        let url = '';
+        const params = new URLSearchParams();
+        if (searchQuery) params.append('q', searchQuery);
+        if (stateVal) params.append('state', stateVal);
+        if (regionVal) params.append('region', regionVal);
+        if (seasonVal) params.append('season', seasonVal);
+        if (catVal) params.append('category', catVal);
+        if (vegVal) params.append('veg_type', vegVal);
+        if (sortVal) params.append('sort', sortVal);
 
-        if (searchQuery) {
-            // When user types in search, call the search API
-            url = `/api/foods/search?q=${encodeURIComponent(searchQuery)}`;
-        } else {
-            // Otherwise call filtered list API
-            const params = new URLSearchParams();
-            if (stateVal) params.append('state', stateVal);
-            if (regionVal) params.append('region', regionVal);
-            if (seasonVal) params.append('season', seasonVal);
-            if (catVal) params.append('category', catVal);
-            if (vegVal) params.append('veg_type', vegVal);
-            if (sortVal) params.append('sort', sortVal);
-
-            url = `/api/foods?${params.toString()}`;
-        }
+        const url = `/api/foods?${params.toString()}`;
 
         const response = await fetch(url);
         const result = await response.json();
@@ -209,15 +204,6 @@ async function fetchAndRenderFoods() {
         }
 
         let foods = result.data || [];
-
-        // If client-side secondary filters are active during search mode
-        if (searchQuery) {
-            if (stateVal) foods = foods.filter(f => f.state_name === stateVal);
-            if (regionVal) foods = foods.filter(f => f.region_name === regionVal);
-            if (catVal) foods = foods.filter(f => f.category_name === catVal);
-            if (vegVal) foods = foods.filter(f => f.veg_type === vegVal);
-            if (seasonVal) foods = foods.filter(f => (f.seasons || []).includes(seasonVal));
-        }
 
         // Update results counter
         if (resultsCountEl) {

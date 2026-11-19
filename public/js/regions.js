@@ -90,13 +90,23 @@ async function selectRegion(region) {
                 ${escapeHtml(region.description)}
             </p>
             <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
-                <strong style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--light-slate);">
-                    States & Territories Represented:
+                <strong style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--light-slate); display: block; margin-bottom: 0.5rem;">
+                    States & Territories Represented (${regionStates.length}):
                 </strong>
                 <div class="region-states-list">
                     ${regionStates.map(s => `
-                        <span class="state-chip">${escapeHtml(s.name)} ${s.food_count ? `(${s.food_count})` : ''}</span>
+                        <a href="/explore.html?state=${encodeURIComponent(s.name)}" class="state-chip" style="text-decoration: none;" title="Explore dishes from ${escapeHtml(s.name)}">
+                            ${escapeHtml(s.name)} ${s.food_count ? `(${s.food_count})` : ''}
+                        </a>
                     `).join('')}
+                </div>
+            </div>
+            <div id="representativeFoodsBox" style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px dashed var(--border-color);">
+                <strong style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--light-slate); display: block; margin-bottom: 0.5rem;">
+                    Representative Culinary Classics:
+                </strong>
+                <div id="representativeFoodsList" style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    <span style="font-size: 0.9rem; color: var(--medium-slate);">Loading representative dishes...</span>
                 </div>
             </div>
         `;
@@ -126,6 +136,20 @@ async function loadFoodsForRegion(regionName) {
         }
 
         const foods = json.data || [];
+
+        // Update representative foods list in the banner
+        const repListEl = document.getElementById('representativeFoodsList');
+        if (repListEl) {
+            if (foods.length > 0) {
+                repListEl.innerHTML = foods.map(f => `
+                    <a href="/food.html?slug=${encodeURIComponent(f.slug)}" class="state-chip" style="background-color: var(--primary-light); color: var(--primary); font-weight: 600; text-decoration: none;">
+                        ${escapeHtml(f.name)}
+                    </a>
+                `).join('');
+            } else {
+                repListEl.innerHTML = `<span style="font-size: 0.9rem; color: var(--light-slate);">No dishes archived yet for this region.</span>`;
+            }
+        }
 
         if (foods.length === 0) {
             grid.innerHTML = `

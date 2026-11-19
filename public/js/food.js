@@ -50,15 +50,17 @@ function renderFoodDetail(food) {
         .join('');
 
     // Format ingredients list items
-    const ingredientsHtml = (food.ingredients || []).map(ing => `
-        <li class="ingredient-item">
-            <span class="ingredient-name">
-                ${escapeHtml(ing.name)}
-                ${ing.is_primary ? `<span class="ingredient-primary-badge">Key</span>` : ''}
-            </span>
-            <span class="ingredient-note">${escapeHtml(ing.quantity_or_note || 'To taste')}</span>
-        </li>
-    `).join('');
+    const ingredientsHtml = (food.ingredients && food.ingredients.length > 0)
+        ? food.ingredients.map(ing => `
+            <li class="ingredient-item">
+                <span class="ingredient-name">
+                    ${escapeHtml(ing.name)}
+                    ${ing.is_primary ? `<span class="ingredient-primary-badge">Key</span>` : ''}
+                </span>
+                <span class="ingredient-note">${escapeHtml(ing.quantity_or_note || 'To taste')}</span>
+            </li>
+        `).join('')
+        : `<p style="color: var(--medium-slate); font-style: italic; padding: 0.5rem 0;">Traditional ingredients being cataloged.</p>`;
 
     // Format references items
     const referencesHtml = (food.references && food.references.length > 0)
